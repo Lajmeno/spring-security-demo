@@ -14,11 +14,11 @@ public class UserService {
     private final MongoUserRepo mongoUserRepo;
 
     public Optional<UserDocument> findByUsername(String username) {
-        return mongoUserRepo.findByName(username);
+        return mongoUserRepo.findByUsername(username);
     }
 
     public Optional<UserDocument> saveUser(UserDocument user) {
-        Optional<UserDocument> oldUser = mongoUserRepo.findByName(user.getName());
+        Optional<UserDocument> oldUser = mongoUserRepo.findByUsername(user.getUsername());
         if(oldUser.equals(Optional.empty())){
             return Optional.of(mongoUserRepo.save(user));
         }

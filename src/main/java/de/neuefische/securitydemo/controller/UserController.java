@@ -4,8 +4,6 @@ import de.neuefische.securitydemo.model.UserDocument;
 import de.neuefische.securitydemo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +20,7 @@ public class UserController {
 
     @GetMapping("/me")
     public String findUserInRepo(Principal principal){
-        return principal.toString() + principal.;
+        return principal.toString();
     }
 
     @PostMapping
